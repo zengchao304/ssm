@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neu.mapper.StudentMapper">
+    <!-- 插入-->
+    <insert id="insertStu">
+   insert into student(name,age,score)values(#{name},#{age},#{score})
+ </insert>
+    <!-- 删除-->
+    <delete id="deleteStu">
+        delete from student where id=#{ooo} <!-- 占位符-->
+    </delete>
+    <!-- 更新-->
+    <update id="updateStu">
+        update student set name=#{name},age=#{age},score=#{score}where id=#{id}<!-- student的id-->
+    </update>
+    <!-- 查找所有-->
+    <select id="selectAllStu" resultType="Student">
+        select * from student
+    </select>
+    <!-- 查找byid-->
+    <select id="selectStuById" resultType="Student">
+        select * from student where id=#{xxx}
+    </select>
+    <!-- 模糊查询-->
+    <select id="selectStuByName" resultType="Student">
+        select * from student where name like #{xxx} '%'
+    </select>
+
+</mapper>
